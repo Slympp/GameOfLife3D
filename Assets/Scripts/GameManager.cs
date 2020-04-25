@@ -218,9 +218,9 @@ public class GameManager : MonoBehaviour {
         stopButton.interactable = _isPlaying;
     }
 
-    private int XSize => int.TryParse(boardXSizeInputField.text, out var v) ? v : 1;
-    private int YSize => int.TryParse(boardYSizeInputField.text, out var v) ? v : 1;
-    private int ZSize => int.TryParse(boardZSizeInputField.text, out var v) ? v : 1;
+    private int XSize => int.TryParse(boardXSizeInputField.text, out var v) && v > 0 ? v : 1;
+    private int YSize => int.TryParse(boardYSizeInputField.text, out var v) && v > 0 ? v : 1;
+    private int ZSize => int.TryParse(boardZSizeInputField.text, out var v) && v > 0 ? v : 1;
     private void RefreshBoardSize() => _boardSize = new Vector3Int(XSize, YSize, ZSize);
     
     private float SpawnProbability => spawnProbabilitySlider.value;
